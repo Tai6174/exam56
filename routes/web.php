@@ -24,3 +24,7 @@ Route::get('/', function () {
     $say  = '嗨！';
     return view('welcome', compact('name', 'say'));
 });
+
+Route::get('/exam/create', function () {
+    return view('exam.create');
+})->name('exam.create');
