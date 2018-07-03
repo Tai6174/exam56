@@ -45,6 +45,7 @@
       <div class="content">
         <div class="title">403</div>
         <div class="quote">Forbidden.</div>
+        <div class="aaa">你沒權限可以進入此網頁！！</div>
         <div class="explanation">
           <br>
           <small>
