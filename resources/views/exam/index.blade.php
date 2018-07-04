@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <h1>測驗一覽 <small>（共 {{$exams->total()}} 筆資料）</small></h1>
     <ul class="list-group">
         @forelse($exams as $exam)
@@ -8,6 +9,9 @@
                 <a href="exam/{{ $exam->id }}">
                     {{ $exam->title }}
                 </a>
+                {{--  <a href="user/{{ Auth::id() }}">
+                    {{ Auth::name() }}
+                </a>  --}}
             </li>
         @empty
             <li class="list-group-item">尚無任何測驗</li>
