@@ -39,9 +39,9 @@ class ExamController extends Controller
         return redirect()->route('exam.index');
     }
 
-    public function show($id)
+    public function show(Exam $exam)
     {
-        $exam = Exam::find($id);
+        // $exam = Exam::find($id);
         return view('exam.show', compact('exam'));
     }
 
