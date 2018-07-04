@@ -35,6 +35,9 @@ class ExamController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|min:2|max:191',
+        ]);
         Exam::create($request->all());
         return redirect()->route('exam.index');
     }
