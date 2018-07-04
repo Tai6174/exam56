@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exam;
+use App\Http\Requests\ExamRequest;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
@@ -17,26 +18,15 @@ class ExamController extends Controller
         return view('welcome');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('exam.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(ExamRequest $request)
     {
         $this->validate($request, [
-            'title' => 'required|min:2|max:255',
+            'title' => 'required|min:2|max:191',
         ], [
             'required' => '「:attribute」為必填欄位',
             'min'      => '「:attribute」至少要 :min 個字',
@@ -46,12 +36,6 @@ class ExamController extends Controller
         return redirect()->route('exam.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
@@ -68,26 +52,14 @@ class ExamController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
     }
+
 }
