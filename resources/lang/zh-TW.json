@@ -12,5 +12,6 @@
     "Logout": "登出",
     "Admin": "後台管理",
     "Create Exam": "建立測驗",
-    "Exam Create": "建立測驗"
+    "Exam Create": "建立測驗",
+    "All Exam" : "所有測驗"
 }
