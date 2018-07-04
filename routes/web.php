@@ -12,19 +12,12 @@
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', compact('name', 'say'));
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    $name = 'TAI';
-    $say  = '嗨！';
-    return view('welcome', compact('name', 'say'));
-});
-
-Route::get('/exam/create', function () {
-    return view('exam.create');
-})->name('exam.create');
+Route::get('/exam', 'ExamController@index')->name('exam.index');
+Route::get('/exam/create', 'ExamController@create')->name('exam.create');
