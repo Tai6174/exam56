@@ -1,31 +1,90 @@
-@extends('layouts.app')
-@section('content')
-    <h1>{{ __('Exam Create') }}</h1>
+<?php
 
-    @can('建立測驗')
-        {{ bs()->openForm('post', '/exam') }}
+namespace App\Http\Controllers;
 
-            {{ bs()->formGroup()
-                ->label('測驗標題',false,'text-sm-right')
-                ->control(bs()->text('title')->placeholder('請填入測驗標題'))
-                ->showAsRow()
-                }}
+use App\Exam;
+use Illuminate\Http\Request;
 
-            {{ bs()->formGroup()
-                ->label('是否啟用？',false,'text-sm-right')
-                ->control(bs()->radioGroup('enable', [1 => '啟用', 0 => '關閉'])->selectedOption(1)->inline())
-                ->showAsRow()
-                }}
+class ExamController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('welcome');
+    }
 
-            {{ bs()->submit('儲存') }}
-        {{ bs()->closeForm() }}
-    @else
-        @component('bs::alert', ['type' => 'danger'])
-            @slot('heading')
-                沒有建立測驗的權限
-            @endslot
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('exam.create');
+    }
 
-            <p>請先登入，或確定身份。</p>
-        @endcomponent
-    @endcan
-@stop
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $exam          = new Exam;
+        $exam->title   = $request->title;
+        $exam->user_id = $request->user_id;
+        $exam->enable  = $request->enable;
+        $exam->save();
+        return redirect()->route('exam.index');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}
