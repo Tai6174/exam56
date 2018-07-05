@@ -12,9 +12,9 @@ $factory->define(App\Topic::class, function (Faker $faker) {
     return [
         'topic'           => $num1 . " + " . $num2,
         'opt' . $items[0] => $num1 + $num2,
-        'opt' . $items[1] => $num1 . $num2,
-        'opt' . $items[2] => rand(1, 99),
-        'opt' . $items[3] => rand(1, 999),
+        'opt' . $items[1] => $num1 + $num2 - 10,
+        'opt' . $items[2] => $num1 + $num2 + 10,
+        'opt' . $items[3] => rand(1, 199),
         'ans'             => $items[0],
         'created_at'      => $random_date,
         'updated_at'      => $random_date,
