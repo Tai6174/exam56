@@ -51,6 +51,7 @@
             <dt>
                 <h3>
                 @can('建立測驗')
+                    <a href="{{route('topic.edit', $topic->id)}}" class="btn-sm btn-warning">編輯</a>
                     （{{$topic->ans}}）
                 @endcan
                 {{ bs()->badge()->text($key+1) }}
