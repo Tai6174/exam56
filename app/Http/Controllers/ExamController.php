@@ -43,7 +43,7 @@ class ExamController extends Controller
     public function show(Exam $exam)
     {
         // $exam = Exam::find($id);
-        $topics = Topic::where('exam_id', $exam->id)->get();
+        // $topics = Topic::where('exam_id', $exam->id)->get();因為已設資料表關聯
         return view('exam.show', compact('exam', 'topics'));
         // return view('exam.show', ['exam' => $exam, 'topics' => $topics]);與上行相同
 
